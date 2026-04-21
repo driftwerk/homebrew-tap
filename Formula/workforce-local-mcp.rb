@@ -13,7 +13,7 @@ class WorkforceLocalMcp < Formula
   on_macos do
     on_arm do
       url "https://github.com/driftwerk/homebrew-tap/releases/download/local-mcp-v#{version}/workforce-local-mcp-#{version}-aarch64-apple-darwin.tar.gz"
-      sha256 "REPLACE_WITH_ACTUAL_SHA256"
+      sha256 "2ef83c7e91d2017d4e7be15d43eb2db083f3606d7f410fef6080e5f7d5a4b317"
     end
   end
 
