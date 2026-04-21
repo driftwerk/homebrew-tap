@@ -149,23 +149,23 @@ and memory recall in parallel, returning both in one round-trip:
 "project" can span several repos:
 
 ```toml
-# ~/Library/Application Support/workforce-local/projects/patchwork.toml  (macOS)
-# ~/.local/share/workforce-local/projects/patchwork.toml                 (Linux)
-name = "patchwork"
+# ~/Library/Application Support/workforce-local/projects/myproject.toml  (macOS)
+# ~/.local/share/workforce-local/projects/myproject.toml                 (Linux)
+name = "myproject"
 [[repos]]
 name = "backend"
-path = "/repos/PatchworkOnRails"
+path = "/path/to/backend-repo"
 [[repos]]
 name = "web"
-path = "/repos/PatchworkApps"
+path = "/path/to/frontend-repo"
 ```
 
 Then:
 
-> Index the patchwork project.
+> Index the myproject project.
 
-> What in PatchworkApps calls the `/api/users` endpoint in
-> PatchworkOnRails?  _(cross-repo impact)_
+> What in the frontend repo calls the `/api/users` endpoint in
+> the backend?  _(cross-repo impact)_
 
 **Adapters** — when credentials are configured:
 
