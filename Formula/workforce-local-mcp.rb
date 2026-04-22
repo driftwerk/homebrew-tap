@@ -1,7 +1,7 @@
 class WorkforceLocalMcp < Formula
   desc "Local MCP server giving Claude Code a code graph, memory, and adapter tools"
   homepage "https://github.com/driftwerk/homebrew-tap"
-  version "0.1.3"
+  version "0.1.4"
   license "MIT"
 
   # Platform coverage:
@@ -14,14 +14,14 @@ class WorkforceLocalMcp < Formula
   on_macos do
     on_arm do
       url "https://github.com/driftwerk/homebrew-tap/releases/download/local-mcp-v#{version}/workforce-local-mcp-#{version}-aarch64-apple-darwin.tar.gz"
-      sha256 "a8d134cecfdae2644a18e050bfbec36e2a08d42d21a2942ef2194e579031b5be"
+      sha256 "98c5c1efcaf4bdf50013cb7548564cdfea81f74d52d03bb5adc666f3b095e0b3"
     end
   end
 
   on_linux do
     on_intel do
       url "https://github.com/driftwerk/homebrew-tap/releases/download/local-mcp-v#{version}/workforce-local-mcp-#{version}-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "0c718db3dec5a7e0fd4dc7ddc5d495cc4eabd6c3d073882143f4640cf753f5ba"
+      sha256 "5d1194ae3f6ee4ae90164269345a81e4e6e2e02d7a8f51d0b47cdc6d76c120a7"
     end
   end
 
