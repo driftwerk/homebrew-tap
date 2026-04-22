@@ -14,7 +14,8 @@ things it doesn't get out of the box:
    hit relevant notes.
 3. **Adapter tools** for Jira, Linear, Datadog, and Metabase —
    ~90 tools across the four, only activated when you configure
-   credentials.
+   credentials. Multiple workspaces per adapter are supported (N Linear
+   workspaces, N Jira sites, etc.) with per-call routing.
 
 Runs as a single static binary (~40 MB). All data stays on your
 machine; the only network calls are the ones you explicitly enable
@@ -105,6 +106,53 @@ jira|linear|datadog|metabase|all`.
 
 Restart Claude Code after setting creds so the MCP server picks them
 up.
+
+### Multiple workspaces per adapter
+
+Each adapter holds any number of workspaces — one set of creds per
+Linear workspace, Jira Cloud site, Datadog account, or Metabase
+instance. Add them with `--workspace <NAME>`:
+
+```bash
+workforce-local-mcp config linear --workspace work
+workforce-local-mcp config linear --workspace personal
+workforce-local-mcp config linear --workspace client-acme
+
+# Same shape for the others:
+workforce-local-mcp config jira     --workspace work \
+  --email you@work.com --site https://work.atlassian.net
+workforce-local-mcp config datadog  --workspace prod-us --site us1
+workforce-local-mcp config metabase --workspace staging \
+  --site-url https://mb-staging.example.com
+
+# Pick which one is used when a tool call omits `workspace`:
+workforce-local-mcp config linear --set-default work
+```
+
+Without `--workspace`, the `config` command writes to the legacy flat
+path and the loader treats that as an implicit workspace named
+`default` — so existing single-workspace setups keep working untouched.
+`config show` lists every adapter grouped by workspace with the
+currently-selected default called out.
+
+Targeting a specific workspace from Claude Code happens via each
+tool's selector parameter:
+
+| Adapter  | Parameter    | Example                                      |
+|----------|--------------|----------------------------------------------|
+| Jira     | `workspace`  | "Get JIRA-123 from the `acme` workspace."    |
+| Linear   | `workspace`  | "List issues in the `personal` Linear workspace." |
+| Datadog  | `account`    | "Check logs on the `prod-eu` account."       |
+| Metabase | `instance`   | "Run that card on `staging`."                |
+
+Omit the selector and the adapter uses whatever `--set-default` last
+pointed at (or the workspace literally named `default`).
+
+Clearing is scoped:
+```bash
+workforce-local-mcp config clear linear --workspace personal  # just one
+workforce-local-mcp config clear linear                       # whole adapter
+```
 
 ## First tasks to try
 
