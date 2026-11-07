@@ -1,3 +1,33 @@
+# driftwerk Homebrew tap
+
+```bash
+brew tap driftwerk/tap
+```
+
+| Formula | What it is |
+| --- | --- |
+| [`enocone`](#enocone) | Business flows as Markdown: reviewed by people, run as end-to-end tests, written with AI |
+| [`workforce-local-mcp`](#workforce-local-mcp) | Local MCP server for Claude Code: code graph, memory, adapter tools |
+
+## enocone
+
+[enocone](https://github.com/driftwerk/enocone) keeps business flows as
+Markdown documents that are both the spec your team reviews and the
+end-to-end test that runs. Its MCP server lets Claude Code, Cursor or any
+MCP client draft, run and implement them. Open source (MIT or Apache-2.0);
+the formula installs its release archives, built and checksummed by
+enocone's release workflow, which also updates the formula.
+
+```bash
+brew install driftwerk/tap/enocone
+enocone install-browsers                          # Chromium for browser steps
+enocone init --name shop --hub https://enoc.one   # in your project
+```
+
+macOS (Apple Silicon) and Linux (x86_64, ARM; including WSL2).
+
+---
+
 # workforce-local-mcp
 
 A local MCP (Model Context Protocol) server that gives
