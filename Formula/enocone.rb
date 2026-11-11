@@ -2,26 +2,26 @@
 class Enocone < Formula
   desc "Business flows as Markdown: reviewed by people, run as end-to-end tests, written with AI"
   homepage "https://enoc.one"
-  version "0.2.10"
+  version "0.2.11"
   license any_of: ["MIT", "Apache-2.0"]
 
   # Each archive holds the binary and the Playwright driver it runs browsers
   # with (playwright-driver/, beside the binary). macOS on Intel isn't built.
   on_macos do
     on_arm do
-      url "https://github.com/driftwerk/enocone/releases/download/v0.2.10/enocone-aarch64-apple-darwin.tar.gz"
-      sha256 "f58eed5d0ed2f23e557311a8f31d38426d8416c8df3d5bae3619954efb4c9615"
+      url "https://github.com/driftwerk/enocone/releases/download/v0.2.11/enocone-aarch64-apple-darwin.tar.gz"
+      sha256 "db2256ac4bcd129f0e94d97d081557709d783508e03a7a1ad572906179746a7c"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/driftwerk/enocone/releases/download/v0.2.10/enocone-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "d550b5e764d3a8cec4b977ad1017a53f4cea96e4c38f501a84796c5bda6be25e"
+      url "https://github.com/driftwerk/enocone/releases/download/v0.2.11/enocone-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "2216cb13906950b599a52ed831da0e59ea173898db5d83659f23f2e401c45a13"
     end
     on_arm do
-      url "https://github.com/driftwerk/enocone/releases/download/v0.2.10/enocone-aarch64-unknown-linux-gnu.tar.gz"
-      sha256 "0c95806a6cb938c8f05b6bf2f0356c7e1c1733a5c11e8cd65a6c8aabcd8602e5"
+      url "https://github.com/driftwerk/enocone/releases/download/v0.2.11/enocone-aarch64-unknown-linux-gnu.tar.gz"
+      sha256 "3fec0302d346b53e5c5a592dcdadc408e8d0d37e55a9a64633c773636e16f035"
     end
   end
 
